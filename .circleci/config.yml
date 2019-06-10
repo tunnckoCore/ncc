@@ -27,15 +27,15 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run:
-          name: Add upstream remote
-          command: git remote add upstream git@github.com:zeit/ncc.git
-      - run:
-          name: Fetch upstream
-          command: git fetch --all --prune
-      - run:
-          name: Merge upstream
-          command: git pull upstream master
+      # - run:
+      #     name: Add upstream remote
+      #     command: git remote add upstream git@github.com:zeit/ncc.git
+      # - run:
+      #     name: Fetch upstream
+      #     command: git fetch --all --prune
+      # - run:
+      #     name: Merge upstream
+      #     command: git pull upstream master
       - run:
           name: Installing dependencies
           command: yarn install

@@ -21,6 +21,6 @@ dist/**/*.js
 !README.md
 !examples/
 !examples/**
-!*.prettier*
+!prettier.config.js
 examples/**/node_modules
 examples/**/dist
