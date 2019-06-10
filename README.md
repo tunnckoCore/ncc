@@ -11,6 +11,8 @@
 Simple CLI for compiling a Node.js module into a single file,
 together with all its dependencies, gcc-style.
 
+**NOTE: A fork of [@zeit/ncc](https://github.com/zeit/ncc) to add support for `mainFields` option, which allows ES Modules as input, so we _can_ get even smaller bundles because of tree-shaking. See [issue #236 there](https://github.com/zeit/ncc/issues/236). Basically, the only important and needed/changed thing can be seen at [this PR](https://github.com/tunnckoCore/ncc/pull/1).**
+
 ## Motivation
 
 - Publish minimal packages to npm
@@ -79,7 +81,7 @@ See [package-support.md](package-support.md) for some common packages and their 
 ### Programmatically From Node.js
 
 ```js
-require('@zeit/ncc')('/path/to/input', {
+require('@tunnckocore/ncc')('/path/to/input', {
   // provide a custom cache path or disable caching
   cache: "./custom/cache/path" | false,
   // externals to leave as requires of the build
@@ -105,7 +107,7 @@ require('@zeit/ncc')('/path/to/input', {
 Multiple entry points can be built by providing an object to build. In this case, those files are avaiable as additional output files:
 
 ```js
-require('@zeit/ncc')({
+require('@tunnckocore/ncc')({
   entry1: '/path/to/input1',
   entry2: '/path/to/input2',
 }).then(({ files, symlinks }) => {
