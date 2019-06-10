@@ -1,6 +1,6 @@
 {
   "name": "@tunnckocore/ncc",
-  "version": "0.21.0",
+  "version": "0.21.1",
   "repository": "tunnckocore/ncc",
   "license": "MIT",
   "main": "./dist/ncc/index.js",
