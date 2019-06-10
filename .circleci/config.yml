@@ -32,7 +32,7 @@ jobs:
           command: git remote add upstream git@github.com:zeit/ncc.git
       - run:
           name: Merge upstream
-          command: git merge upstream/master master
+          command: git pull upstream master
       - run:
           name: Installing dependencies
           command: yarn install
