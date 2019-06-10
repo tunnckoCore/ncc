@@ -18,12 +18,13 @@ together with all its dependencies, gcc-style.
 - Don't waste time configuring bundlers
 - Generally faster bootup time and less I/O overhead
 - Compiled language-like experience (e.g.: `go`)
+- Smaller & optimized bundles, because of tree-shaking ESM input
 
 ## Design goals
 
 - Zero configuration
 - TypeScript built-in
-- Only supports Node.js programs as input / output
+- Supports Node.js and ES Modules programs as input / output
 - Support all Node.js patterns and npm modules
 
 ## Usage
@@ -31,7 +32,10 @@ together with all its dependencies, gcc-style.
 ### Installation
 
 ```bash
-npm i -g @zeit/ncc
+yarn global add @tunnckocore/ncc
+
+# Or add it as devDependency
+yarn add --dev @tunnckocore/ncc
 ```
 
 ### Usage
