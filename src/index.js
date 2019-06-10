@@ -35,6 +35,7 @@ module.exports = (
   {
     cache,
     externals = [],
+    mainFields = [],
     minify = false,
     sourceMap = false,
     sourceMapRegister = true,
@@ -107,6 +108,8 @@ module.exports = (
 
   let watcher, watchHandler, rebuildHandler;
 
+  const fields = [].concat(mainFields).filter(Boolean);
+
   const compiler = webpack({
     entry: processedEntry,
     cache: cache === false ? undefined : {
@@ -136,9 +139,9 @@ module.exports = (
     },
     resolve: {
       extensions: SUPPORTED_EXTENSIONS,
-      // webpack defaults to `module` and `main`, but that's
-      // not really what node.js supports, so we reset it
-      mainFields: ["main"],
+      // Support options.mainFields, otherwise fallback to @zeit/ncc defaults,
+      // which forces only using the 'main' field.
+      mainFields: fields.length > 0 ? fields : ['main'],
       plugins: resolvePlugins
     },
     // https://github.com/zeit/ncc/pull/29#pullrequestreview-177152175
