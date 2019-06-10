@@ -6,6 +6,7 @@
   "main": "./dist/ncc/index.js",
   "bin": {
     "ncc": "./dist/ncc/cli.js",
+    "tcc": "./dist/ncc/cli.js",
     "tunnckocore-ncc": "./dist/ncc/cli.js"
   },
   "scripts": {
