@@ -9,12 +9,12 @@
     "tunnckocore-ncc": "./dist/ncc/cli.js"
   },
   "scripts": {
+    "cli": "node ./dist/ncc/cli.js",
     "build": "node scripts/build",
     "jest": "node --expose-gc --max_old_space_size=3072 node_modules/.bin/jest",
     "build-test-binary": "cd test/binary && node-gyp rebuild && cp build/Release/hello.node ../integration/hello.node",
     "test": "yarn run build-test-binary && yarn run build && yarn run jest",
     "test-coverage": "yarn run jest --coverage --globals '{\"coverage\":true}'",
-    "prepublish": "in-publish && yarn test || not-in-publish",
     "format": "prettier '**/*.{js,ts,json}' --write"
   },
   "devDependencies": {
