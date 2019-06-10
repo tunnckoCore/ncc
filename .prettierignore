@@ -3,7 +3,9 @@ coverage
 build
 dist
 
+src/sourcemap-register.js.cache.js
 test
+
 *.node
 *.gyp
 *.log
