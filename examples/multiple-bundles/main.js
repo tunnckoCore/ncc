@@ -1,7 +1,7 @@
-const chalk = require("chalk");
+const chalk = require('chalk');
 
 exports.color = function color() {
-  const color = Math.random() > 0.5 ? "red" : "blue";
+  const color = Math.random() > 0.5 ? 'red' : 'blue';
 
   return `Your lucky color is ${chalk[color](color)}`;
 };

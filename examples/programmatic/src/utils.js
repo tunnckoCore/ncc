@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import fetch from 'node-fetch';
 
 export async function animalAPI(res, title, api, key) {
   const resp = await fetch(api);
@@ -18,8 +18,8 @@ export async function animalAPI(res, title, api, key) {
 `;
 
   res.writeHead(200, {
-    "Content-Length": Buffer.byteLength(body),
-    "Content-Type": "text/html; charset=utf-8"
+    'Content-Length': Buffer.byteLength(body),
+    'Content-Type': 'text/html; charset=utf-8',
   });
 
   res.end(body);

@@ -1,3 +1,3 @@
-const chalk = require("chalk");
+const chalk = require('chalk');
 
-console.log(chalk.green("Hello World!"));
+console.log(chalk.green('Hello World!'));

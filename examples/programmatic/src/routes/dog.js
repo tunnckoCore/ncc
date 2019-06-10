@@ -1,4 +1,4 @@
-import { animalAPI } from "../utils";
+import { animalAPI } from '../utils';
 
 export default (req, res) =>
-  animalAPI(res, "Dog", "https://random.dog/woof.json", "url");
+  animalAPI(res, 'Dog', 'https://random.dog/woof.json', 'url');

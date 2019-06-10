@@ -1,0 +1,17 @@
+node_modules
+coverage
+build
+dist
+
+test
+*.node
+*.gyp
+*.log
+*.lock
+*~
+.*
+package-lock.json
+shrinkwrap.json
+
+LICENSE
+CHANGELOG.md

@@ -1,1 +1,1 @@
-module.exports = require("os").tmpdir() + "/ncc-cache";
+module.exports = require('os').tmpdir() + '/ncc-cache';

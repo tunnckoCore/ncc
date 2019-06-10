@@ -1,1 +1,1 @@
-module.exports = require("shebang-loader");
+module.exports = require('shebang-loader');

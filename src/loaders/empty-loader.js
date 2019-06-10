@@ -3,9 +3,11 @@
 const pkgNameRegEx = /^(@[^\\\/]+[\\\/])?[^\\\/]+/;
 function getPackageBase(id) {
   const pkgIndex = id.lastIndexOf('node_modules');
-  if (pkgIndex !== -1 &&
-      (id[pkgIndex - 1] === '/' || id[pkgIndex - 1] === '\\') &&
-      (id[pkgIndex + 12] === '/' || id[pkgIndex + 12] === '\\')) {
+  if (
+    pkgIndex !== -1 &&
+    (id[pkgIndex - 1] === '/' || id[pkgIndex - 1] === '\\') &&
+    (id[pkgIndex + 12] === '/' || id[pkgIndex + 12] === '\\')
+  ) {
     const pkgNameMatch = id.substr(pkgIndex + 13).match(pkgNameRegEx);
     if (pkgNameMatch)
       return id.substr(0, pkgIndex + 13 + pkgNameMatch[0].length);
@@ -14,7 +16,7 @@ function getPackageBase(id) {
 
 const emptyModules = { 'uglify-js': true };
 
-module.exports = function (input, map) {
+module.exports = function(input, map) {
   const id = this.resourcePath;
   const pkgBase = getPackageBase(id);
   if (pkgBase) {
@@ -22,7 +24,9 @@ module.exports = function (input, map) {
     if (baseParts[baseParts.length - 2] === 'node_modules') {
       const pkgName = baseParts[baseParts.length - 1];
       if (pkgName in emptyModules) {
-        console.error(`ncc: Ignoring build of ${pkgName}, as it is not statically analyzable. Build with "--external ${pkgName}" if this package is needed.`);
+        console.error(
+          `ncc: Ignoring build of ${pkgName}, as it is not statically analyzable. Build with "--external ${pkgName}" if this package is needed.`,
+        );
         return '';
       }
     }
