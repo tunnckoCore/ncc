@@ -24,6 +24,7 @@ Options:
   -s, --source-map         Generate source map
   --no-source-map-register Skip source-map-register source map support
   -e, --external [mod]     Skip bundling 'mod'. Can be used many times
+  -M, --main-fields [mod]  Pass main fields to Webpack, defaults to only 'main'
   -q, --quiet              Disable build summaries / non-error outputs
   -w, --watch              Start a watched build
   --v8-cache               Emit a build using the v8 compile cache
@@ -104,6 +105,8 @@ async function runCmd(argv, stdout, stderr) {
         '-d': '--debug',
         '--external': [String],
         '-e': '--external',
+        '--main-fields': [String],
+        '-M': '--main-fields',
         '--out': String,
         '-o': '--out',
         '--minify': Boolean,
@@ -195,6 +198,7 @@ async function runCmd(argv, stdout, stderr) {
         debugLog: args['--debug'],
         minify: args['--minify'],
         externals: args['--external'],
+        mainFields: args['--main-fields'],
         sourceMap: args['--source-map'] || run,
         sourceMapRegister: args['--no-source-map-register'] ? false : undefined,
         cache: args['--no-cache'] ? false : undefined,
