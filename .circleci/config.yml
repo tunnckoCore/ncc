@@ -28,8 +28,17 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Fetch upstream
+          command: git remote add upstream git@github.com:zeit/ncc.git
+      - run:
+          name: Merge upstream
+          command: git merge upstream/master master
+      - run:
           name: Installing dependencies
           command: yarn install
+      - run:
+          name: Format with Prettier
+          command: yarn format
       - run:
           name: Build unit test binary
           command: yarn build-test-binary
@@ -41,7 +50,7 @@ jobs:
           command: yarn test
       - run:
           name: Coverage
-          command: yarn test-coverage
+          command: bash <(curl -s https://codecov.io/bash)
 workflows:
   version: 2
   test:
